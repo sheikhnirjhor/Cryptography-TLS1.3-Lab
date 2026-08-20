@@ -7,8 +7,8 @@ A study and documentation of TLS 1.3 protocol mechanics, handshake, cipher suite
     TLS 1.2 was bumped to TLS 1.3 It speeds up the process of establishing a secure connection and enhances security.
     
 2) Explaining the TLS 1.3 handshake
- The TLS handshake is the method by which a client and server agree on a secure connection.In a typical TLS 1.3 connection, the handshake is done in 1 round trip (1-RTT).
- In the shakes.The client sends a ClientHello message with its crypto options and a key share.The server responds with a ServerHello message that will include its chosen        options and key share.The server sends the authentication information (certificate and digital signature)Both parties compute the common encryption keys.Client and server      exchange Finished messages.The application data can then be sent encrypted.TLS 1.3 also supports early data in 0-RTT resumption of a previous connection with a pre-shared      key. This may reduce latency, but 0-RTT data has other security considerations regarding replay.
+ The TLS handshake is the method by which a client and server agree on a secure connection.In a typical TLS 1.3 connection,   the handshake is done in 1 round trip (1-RTT).
+ In the shakes.The client sends a ClientHello message with its crypto options and a key share.The server responds with a      ServerHello message that will include its chosen options and key share.The server sends the authentication information (certificate and digital signature)Both parties compute the common encryption keys.Client and server exchange Finished       messages.The application data can then be sent encrypted.TLS 1.3 also supports early data in 0-RTT resumption of a previous connection with a pre-shared key. This may reduce latency, but 0-RTT data has other security considerations regarding replay.
 
 3) TLS 1.3 Handshake Flow Diagram
          The simplified handshake can be represented as:
@@ -87,6 +87,7 @@ TLS 1.3 simplifies cipher-suite selection and removes obsolete mechanisms. For e
    ECDHE stands for Elliptic Curve Diffie-Hellman Ephemeral.
    It is a key-exchange mechanism that allows the client and server to establish a shared secret without directly sending that secret over the network.
 The simplified process is:
+
 Client                                Server
 
 Private temporary key                Private temporary key
@@ -97,7 +98,7 @@ Private temporary key                Private temporary key
                        ↓
                 Session Encryption Key
 
-The word ephemeral means that temporary keys are used for the session.Forward secrecy means that if a server's long-term private key is compromised in the future,          previously recorded TLS sessions should not be able to be decrypted.
+The word ephemeral means that temporary keys are used for the session.Forward secrecy means that if a server's long-term private key is compromised in the future,previously recorded TLS sessions should not be able to be decrypted.
 TLS 1.3 normally uses ephemeral key exchange such as ECDHE to provide this protection.
 
 
